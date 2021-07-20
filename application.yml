@@ -1,0 +1,14 @@
+#
+##模板文件位置
+##spring.thymeleaf.prefix=classpath:/templates/
+##spring.resources.static-locations=classpath:/static/
+##spring.mvc.static-path-pattern=/static/**
+#
+#spring:
+#  thymeleaf:
+#    prefix: classpath:/templates/
+#  web:
+#    resources:
+#      static-locations: classpath:/static/
+#  mvc:
+#    static-path-pattern: /static/**

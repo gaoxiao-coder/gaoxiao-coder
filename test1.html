@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>test1</title>
+    <link rel="stylesheet" type="text/css" href="../../static/jquery-easyui-1.8.6/themes/bootstrap/easyui.css">
+    <script type="text/javascript" src="../../static/jquery-easyui-1.8.6/jquery.min.js"></script>
+    <script type="text/javascript" src="../../static/jquery-easyui-1.8.6/jquery.easyui.min.js"></script>
+   <!-- <link rel="stylesheet" type="text/css" th:href="@{/static/jquery-easyui-1.8.6/themes/bootstrap/easyui.css}">
+    <script th:src="@{/static/jquery-easyui-1.8.6/jquery.min.js}"></script>
+    <script th:src="@{/static/jquery-easyui-1.8.6/jquery.easyui.min.js}"></script>-->
+</head>
+<body>
+
+    <div id="p" class="easyui-panel" style="width:500px;height:200px;padding:10px;"
+         title="My Panel" iconCls="icon-save" collapsible="true">
+        The panel content
+    </div>
+    <input class="easyui-combobox" name="language"
+           data-options="
+    url:'combobox_data.json',
+    valueField:'id',
+    textField:'text',
+    panelHeight:'auto',
+    onSelect:function(record){
+    alert(record.text)
+    }">
+
+    <input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px">
+
+<!--    <input id="tb" type="text" style="width:300px">-->
+
+    <input class="easyui-tagbox" value="Apple, Orange" label="Add a tag" style="width:100%">
+
+    <input id="tb" type="text" style="width:300px">
+    <table>
+        <form id="ff" method="post">
+            <tr>
+                <div>
+                    <td>
+                        <label for="name">Name:</label>
+                    </td>
+                    <td>
+                        <input class="easyui-validatebox" type="text" name="name" data-options="required:true" />
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <div>
+                    <td><label for="email">Email:</label></td>
+                    <td><input class="easyui-validatebox" type="text" name="email" data-options="validType:'email'" /></td>
+                </div>
+            </tr>
+
+            ...
+        </form>
+    </table>
+
+
+    <script>
+        $('#tb').tagbox({
+            label:'Add a tag',
+            value:['Apple', 'Orange']
+        })
+
+        // $('#tb').textbox({
+        //     buttonText:'Search',
+        //     iconCls:'icon-man',
+        //     iconAlign:'left'
+        // })
+        $.extend($.fn.dialog.methods, {
+            mymove: function(jq, newposition){
+                return jq.each(function(){
+                    $(this).dialog('move', newposition);
+                });
+            }
+        });
+
+        $('#dd').dialog('mymove', {
+            left: 200,
+            top: 100
+        });
+    </script>
+</body>
+</html>
